@@ -47,7 +47,7 @@ export default function CampaignDetails({ params }: CampaignDetailsProps) {
   const router = useRouter();
 
   const goBack = () => {
-    router.push("/donor"); // Go back to donor page
+    router.back();
   };
 
   // Find the campaign based on the id from params
@@ -81,9 +81,9 @@ export default function CampaignDetails({ params }: CampaignDetailsProps) {
             <CardDescription className="mb-3 h-10 overflow-hidden">
               {campaign.description}
             </CardDescription>
-            <Progress 
-                className="h-4"
-                value={Math.min(campaign.raised / campaign.goal * 100, 100)}
+            <Progress
+              className="h-4"
+              value={Math.min((campaign.raised / campaign.goal) * 100, 100)}
             />
           </CardContent>
           <CardFooter>
